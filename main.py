@@ -6,14 +6,27 @@ def main():
     env.read_env()
 
     params = {
-    'api_key' : env("HOLIDAYS_API_KEY"),
-    'country' : 'US',
-    'year' : 2025
+        'api_key': env("HOLIDAYS_API_KEY"),
+        'country': 'US',
+        'year': 2025
     }
 
-    months = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"]
+    months = [
+        "Января",
+        "Февраля",
+        "Марта",
+        "Апреля",
+        "Мая",
+        "Июня",
+        "Июля",
+        "Августа",
+        "Сентября",
+        "Октября",
+        "Ноября",
+        "Декабря"
+    ]
 
-    holidays_url = 'https://calendarific.com/api/v2/holidays?'
+    holidays_url = 'https://calendarific.com/api/v2/holidays'
 
     response = requests.get(holidays_url, params=params)
     response.raise_for_status()
